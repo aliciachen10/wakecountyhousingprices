@@ -16,7 +16,8 @@ def multiple_linear_regression():
 
     # load data sets
     response = pd.read_csv("data/response.csv")
-    df = pd.read_csv("data/explanatory.csv")
+    #df = pd.read_csv("data/explanatory.csv")
+    df = pd.read_csv("data/explanatory_subset.csv")
 
     # split data into training and test datasets
     X_train, X_test, y_train, y_test = train_test_split(df, response, test_size=0.3, random_state=11556)
@@ -37,7 +38,7 @@ def multiple_linear_regression():
     print(adj_r2)
 
     # export initial model
-    with open("model.pkl", "wb") as model_file:
+    with open("model_subset.pkl", "wb") as model_file:
         pickle.dump(model, model_file)
 
 def main():
